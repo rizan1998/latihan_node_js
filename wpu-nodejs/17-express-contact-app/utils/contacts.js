@@ -9,10 +9,11 @@ const loadContact = () => {
 }
 
 // cari contact berdasarkan nama
-// const findContact = (nama) => {
-//   const contacts = loadContact();
-//   const contact = contacts.find((contact) => )
-// }
+const findContact = (nama) => {
+  const contacts = loadContact();
+  const contact = contacts.find((contact) => contact.nama.toLowerCase() === nama.toLowerCase());
+  return contact;
+}
 
 // cek directory file dan membuat folder data
 const dirPath = './data';
@@ -26,4 +27,4 @@ if(!fs.existsSync(dataPath)){
   fs.writeFileSync(dataPath, '[]', 'utf-8');
 }
 
-module.exports = { loadContact};
+module.exports = { loadContact, findContact};

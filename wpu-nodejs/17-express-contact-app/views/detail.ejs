@@ -5,18 +5,16 @@
       <% if (!contact){ %>
 
       <div class="alert alert-danger fw-bold" role="alert">
-        <b>Data contact tidak ada</b>
-        <a href="/contact">&laquo; kembali ke daftar contact</a>
+        <b>Data contact tidak ada</b><br>
+        <a href="/contact" class="alert-link fw-normal">&laquo; kembali ke daftar contact</a>
       </div>
 
       <% } else { %>
       <div class="card" style="width: 18rem;">
         <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-          <p class="card-text">
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
+          <h5 class="card-title"><%= contact.nama %></h5>
+          <h6 class="card-subtitle mb-2 text-muted"><%= contact.nohp %></h6>
+          <p class="card-text"><%= contact.email %>
           </p>
           <a href="/contact" class="card-link"
             >&laquo; Kebali ke daftar contact</a

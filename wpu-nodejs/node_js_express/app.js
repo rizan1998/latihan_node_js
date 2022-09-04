@@ -40,14 +40,14 @@ app.get('/showJson', (req, res) => {
 });
 
 // mengembalikan html dokumen
-app.get('/showHMTL', (req, res) => {
+app.get('/showHTML', (req, res) => {
   res.sendFile('./index.html', {root: __dirname});
 });
 
 // middleware untuk page 404 
 app.use('/', (req, res) => {
   res.status(404);
-  res.send('test');
+  res.send('404');
 });
 
 app.listen(port, () => {

@@ -2,7 +2,7 @@ const express = require('express');
 const expressLayout = require('express-ejs-layouts');
 const app = express();
 const port = 3000;
-const {loadContact } = require('./utils/contacts');
+const {loadContact, findContact } = require('./utils/contacts');
 
 // gunakan ejs
 app.set('view engine', 'ejs');
@@ -41,6 +41,7 @@ app.get('/about', (req, res) => {
 
 app.get('/contact', (req, res) => {
   const contacts = loadContact();
+  console.log(contacts);
   res.render('contact', {
   title: 'contact',
   layout: 'layouts/main-layouts',
@@ -49,11 +50,11 @@ app.get('/contact', (req, res) => {
 });
  
 app.get('/contact/:nama', (req, res) => {
-  // const contacts = findContact(req.params.nama);
+  const contact = findContact(req.params.nama);
   res.render('detail', {
     title: 'Halaman Detail Contact',
     layout: 'layouts/main-layouts',
-    // contact
+    contact
   }); 
 });
 
